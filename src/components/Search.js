@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 
 const Search = () => {
-  const [term, setTerm] = useState('')
+  const [term, setTerm] = useState('programming')
   const [results, setResults] = useState([])
 
   // 2nd argument of useEffect is either 1) nothing, 2) empty array, 3) array with something
@@ -20,16 +20,22 @@ const Search = () => {
         setResults(data.query.search);
      };
 
-     const timeId = setTimeout(() => {
-       if (term){
-         search();
-       }
-     }, 500)
+     if (term && !results.length) {
+       search();
+     } else{
+        const timeId = setTimeout(() => {
+          if (term){
+            search();
+          }
+        }, 500)
+  
+      //  clear previous timer and above sets new one
+        return () => {
+          clearTimeout(timeId)
+        };
+     }
 
-    //  clear previous timer and above sets new one
-     return () => {
-       clearTimeout(timeId)
-     };
+     
 
   }, [term])
 
