@@ -40,7 +40,7 @@ const Dropdown = ({ options, selected, onSelectedChange, label }) => {
         >
           <i className="dropdown icon"></i>
           <div className="text">{selected.label}</div>
-          <div className={`menu ${open ? "visible transition" : "" }`}>
+          <div style={{cursor: "pointer"}} className={`menu ${open ? "visible transition" : "" }`}>
             {renderedOptions}
           </div>
         </div>
