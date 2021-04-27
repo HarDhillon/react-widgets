@@ -2,5 +2,5 @@
 ### Widgets include things such as: 
 * [x] Accordion
 * [x] Search
-* [ ] Drop-down
-* [ ] Translator
+* [x] Drop-down
+* [x] Translator
